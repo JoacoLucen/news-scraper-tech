@@ -208,7 +208,10 @@ def save_to_google_sheets(articles):
     try:
         # Autenticar con Google
         creds_dict = json.loads(GOOGLE_CREDENTIALS)
-        creds = Credentials.from_service_account_info(creds_dict)
+        creds = Credentials.from_service_account_info(
+            creds_dict,
+            scopes=['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+        )
         client = gspread.authorize(creds)
         
         # Abrir o crear sheet
