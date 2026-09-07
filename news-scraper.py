@@ -228,7 +228,7 @@ def save_to_google_sheets(articles):
         # Agregar artículos
         today = datetime.now().strftime("%Y-%m-%d")
         
-        for article in articles[:50]:  # Top 50
+        for article in articles[:80]:  # Top 80
             categoria = get_category(article['titulo'], article['descripcion'])
             row = [
                 today,
