@@ -228,7 +228,7 @@ def save_to_google_sheets(articles):
         # Agregar artículos
         today = datetime.now().strftime("%Y-%m-%d")
         
-        for article in articles[:15]:  # Top 15
+        for article in articles[:30]:  # Top 30
             categoria = get_category(article['titulo'], article['descripcion'])
             row = [
                 today,
@@ -242,7 +242,7 @@ def save_to_google_sheets(articles):
             ]
             sheet.append_row(row)
         
-        print(f"✅ {len(articles[:15])} artículos guardados en Google Sheets")
+        print(f"✅ {len(articles[:30])} artículos guardados en Google Sheets")
         return True
     except Exception as e:
         print(f"❌ Error guardando en Google Sheets: {e}")
